@@ -5,8 +5,9 @@
     "homepage": "https://www.pmtresearch.org/pmtgames",
     "author": "PMT Research Institute <research@hjsfmail.org>",
     "contributors": [
-        { "name": "Lee Tran", "username": "leettran" }
-    ],
+        { "name": "Lee Tran", 
+          "username": "leettran"
+    }],
     "repository": {
         "type": "git",
         "url": "https://github.com/pmtresearch/pmtgames.git"
@@ -14,7 +15,7 @@
     "keywords": [
         "Heroku",
         "nodeGame",
-        "cloud"
+        "gamecloud"
     ],
     "engines": { 
         "node": ">= 0.10.0" 
