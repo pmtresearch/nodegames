@@ -1,0 +1,81 @@
+<!doctype html>
+<title>QUESTION Rounds</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link href = "../css/bootstrap.min.css" rel = "stylesheet">
+
+<body>
+	<script src="../js/jquery.min.js"></script>
+	<script src = "../js/bootstrap.js"></script>
+	<div id="instructions">
+		<center>
+			<div><h3>Initial Situation</h3></div>
+			<br>
+			<table class="table" style="max-width:600px;">
+				  <tr class="active">
+				    <td align="left">Your endowment (ECU):</td>
+				    <td align="center" id="respEndow"></td>
+				  </tr>
+				  <tr>
+				    <td align="left">The other player's endowment (ECU):</td>
+				    <td align="center" id="propEndow"></td>
+				  </tr>
+				  <tr class="active">
+				    <td align="left">Total cost of reducing greenhouse gas emissions (ECU):</td>
+				    <td align="center" id="costGHGE"></td>
+				  </tr>
+				  <tr>
+				    <td align="left">Your contribution to increase the climate risk (%):</td>
+				    <td align="center" id="clRiskOwn"></td>
+				  </tr>
+				  <tr class="active">
+				    <td align="left">The other player's contribution to increase the climate risk (%):</td>
+				    <td align="center" id="clRiskOther"></td>
+				  </tr>
+				  <tr>
+				  	<td align="left">Probability of climate catastrophy if no agreement (%):</td>
+				  	<td align = "center" id="clRisk"></td>
+				  </tr>
+			</table>
+			<br>
+			<div><h3>Result</h3></div>
+			<br>
+			<table class="table" style="max-width: 500px;">
+				<tr class="active">
+					<td align="left">The other player offered to pay:</td>
+					<td align="center" id="propOffer"></td>
+				</tr>
+				<tr>
+					<td align="left">Your amount to pay:</td>
+					<td align="center" id="respToPay"></td>
+				</tr>
+				<tr class="active">
+					<td align="left">Your decision:</td>
+					<td align="center" id="respDecision"></td>
+				</tr>
+				<tr>
+					<td align="left">Agreement against global warming:</td>
+					<td align="center" id="agreement"></td>
+				</tr>
+				<tr class="active">
+					<td align="left">Climate catastrophe:</td>
+					<td align="center" id="climateCatastrophe"></td>
+				</tr>
+				<tr>
+					<td align="left">Your remaining endowment (i.e. your income in
+						this period):</td>
+					<td align="center" id="remainResp"></td>
+				</tr>
+			</table>
+		</center>
+		<br><br>	
+		<div>
+			<h4><p id = "quest"></p></h4>
+			<br>
+			<textarea class="form-control" rows="5" cols="80" id="questRounds" placeholder="Please enter your comments here."></textarea>
+			<br> <br>
+			<a class = "btn btn-primary" id="continue">Continue</a>
+			<br/>
+			<br/>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html><title></title><head><script>var questionnaire = parent.node.game.questionnaire;
+questionnaire.currentAnswerMade = false;
+questionnaire.numberOfClicks = 0;
+function makeChoice(i) {
+    ++questionnaire.numberOfClicks;
+    questionnaire.currentAnswerMade = true;
+    questionnaire.currentAnswer = i;
+}
+</script><style>th.centeredHead, td {
+    border: solid 1px;
+    text-align: center;
+}
+table td {
+    word-wrap: break-word;
+}
+div.questionDiv {
+    width: 1000px;
+    font-size: 18px;
+}
+h1.questionExplanation {
+    word-wrap: break-word;
+    font-size: 25px;
+}</style><style>table td { width: 10%;}</style><link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/fullheight.css">
+<link rel="stylesheet" href="/stylesheets/noscript.css">
+<link rel="stylesheet" href="/stylesheets/player.css"></head><body><div class="questionDiv"><h1 class="questionExplanation">Please select your preferred allocation of resources between you and another individual participating in the experiment.</h1><p><table><thead><tr><td></td><th class="centeredHead">100<br>|<br>|<br>50</th><th class="centeredHead">94<br>|<br>|<br>56</th><th class="centeredHead">88<br>|<br>|<br>63</th><th class="centeredHead">81<br>|<br>|<br>69</th><th class="centeredHead">75<br>|<br>|<br>75</th><th class="centeredHead">69<br>|<br>|<br>81</th><th class="centeredHead">63<br>|<br>|<br>88</th><th class="centeredHead">56<br>|<br>|<br>94</th><th class="centeredHead">50<br>|<br>|<br>100</th></tr></thead><tbody><tr><th class="centeredHead">You Receive<br>|<br>|<br>Other Receives</th><td><input type="radio" name="QButton" onclick="makeChoice(0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(1)"></td><td><input type="radio" name="QButton" onclick="makeChoice(2)"></td><td><input type="radio" name="QButton" onclick="makeChoice(3)"></td><td><input type="radio" name="QButton" onclick="makeChoice(4)"></td><td><input type="radio" name="QButton" onclick="makeChoice(5)"></td><td><input type="radio" name="QButton" onclick="makeChoice(6)"></td><td><input type="radio" name="QButton" onclick="makeChoice(7)"></td><td><input type="radio" name="QButton" onclick="makeChoice(8)"></td></tr></tbody></table></p><p><input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary"></p></div></body>

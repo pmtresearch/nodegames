@@ -1,0 +1,173 @@
+<!doctype html>
+
+<head>
+	<title>Burden</title>
+
+	<!-- Loading  nodeGame libraries and CSS -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="dhtml.js"></script>
+	<script src="/javascripts/nodegame-full.js" charset="utf-8"></script>
+	<script src="./js/gamestate.js" charset="utf-8"></script>
+	<script src="./js/RandomOrderExecutor.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel='stylesheet' href='/stylesheets/fullheight.css'></link>
+	<link rel='stylesheet' href='/stylesheets/player.css'></link>
+	<link rel='stylesheet' href='./css/main.css'></link>
+	<link rel='stylesheet' href='./css/evaluation.css'></link>
+
+	<script type="text/javascript">
+
+		function Countdown (minutes, seconds){
+			var PrevMin = (minutes < 10) ? "0" : ":";
+			var PrevSec = (seconds < 10) ? ":0" : ":";
+			var TimeNow = PrevMin + minutes + PrevSec + seconds;
+			// var Now = new Date();
+			// HoursWaitRoom = Now.getUTCHours();
+			// MinutesWaitRoom = Now.getUTCMinutes();
+
+			if (DHTML) {
+				if (NS4) {
+			    	setContent("id", "Uhr", null, '<span class="Uhr">' + TimeNow + "<\/span>");
+			    } else {
+			    	setContent("id", "Uhr", null, TimeNow);
+			    }
+			   	if(minutes > 0 && seconds == 0){
+			    	minutes--;
+			    	seconds = 59;
+			    }
+			    else seconds--;
+
+			    if(minutes == 0 && seconds < 0){clearTimeout(count);}
+			    else{
+			    	count = setTimeout(function(){
+			    		Countdown(minutes, seconds)}, 1000);
+			    }
+		  	}
+		}
+	</script>
+</head>
+
+<body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootbox.min.js"></script>
+	<noscript>
+		Sorry, you need to enable javascript in order to
+		play this game.
+	</noscript>
+
+	<div class="container" id="waitingForPlayers" style="display:;">
+		<div class="jumbotron" id = "startPage">
+			<h1 align="center">Welcome to the experiment!</h1>
+			<h3 align="center">
+				<div id="join"></div> <br><br>
+				<div id="nbrPlayers"></div> <br><br>Time Remaining:
+			</h3>
+			<center>
+				<div id="Uhr" class="Uhr" style="font-size:250%;">&nbsp;</div>
+			</center>
+		</div>
+	</div>
+
+	<script>
+		min = 10;
+		sec = 0;
+		Countdown(min,sec);
+		var timeout = "NotEnoughPlayers";
+		var secCount = 0;
+		var nbrPlayerConnected = 0;
+		exitCode = 0;
+		node.on.data('TIME', function(msg){
+			console.log(msg.data);
+			timeout = msg.data.over;
+			exitCode = msg.data.exit;
+		});
+
+		node.on.data('PLAYERSCONNECTED', function(msg){
+			console.log(msg.data);
+			nbrPlayerConnected = msg.data;
+		});
+
+		node.on.data('CLEAR_COUNTDOWN', function(msg){
+			console.log("Clear CountDown");
+			clearInterval(timeCheck);
+			clearTimeout(count);
+		});
+
+	  	window.onload = function () {
+			// HourLimitWaitRoom = 25;
+			// MinutesLimitWaitRoom = 61;
+			var instWait = "<br> Please be patient and <b>do not leave this page</b> while waiting for the other participants to connect. ";
+			instWait += "As soon as a group of 4 is complete the experiment starts automatically and you will be forwarded to the next page.<br><br>";
+			// document.getElementById("join").innerHTML =instWait + "Participants can join until " + HourLimitWaitRoom + ":" + MinutesLimitWaitRoom + " (UTC - Coordinated Universal Time).";
+			document.getElementById("join").innerHTML = instWait;
+			// check wether the participant is too late
+	      	// if(HoursWaitRoom <= HourLimitWaitRoom && MinutesWaitRoom < MinutesLimitWaitRoom){
+	     	if(true){
+			    // Configuring nodegame
+			    node.setup('nodegame', {
+					// HOST needs to be specified only
+					// if this file is located in another server
+					// host: http://myserver.com,
+					verbosity: 100,
+					debug : true,
+					window : {
+						promptOnleave : false
+						//transitions: true // not used for now (transitions are on by default)
+					},
+					env : {
+						auto : false,
+						debug : false
+					},
+					player : {
+						name : "NodeGame Player",
+						id : 'nodegame player id'
+					},
+					events : {
+						dumpEvents : true
+					},
+					socket : {
+						type : 'SocketIo',
+						reconnect : false
+					}
+				});
+				// connecting
+				node.connect("/burdenRAHR");
+				timeCheck = setInterval(function(){
+					console.log(timeout);
+
+					// if(HoursWaitRoom <= HourLimitWaitRoom && MinutesWaitRoom < MinutesLimitWaitRoom){
+					if(timeout == "NotEnoughPlayers"){
+						document.getElementById("nbrPlayers").innerHTML = "Number of participants already in the group:  " + nbrPlayerConnected + " of 4";
+						secCount++;
+					}
+					else if(timeout == "Time elapsed!!!"){
+						var timeOut = "<h3 align='center'>Thank you for your patience.<br>";
+						timeOut += "Unfortunately there are not enough participants in your group to start the experiment.<br>";
+						timeOut += "You will be payed out a fix amount for your participation up to this point.<br><br>";
+						timeOut += "Please go back to Amazon Mechanical Turk web site and submit the hit.<br>";
+						timeOut += "We usually pay within 24 hours. <br>For any problems, please look for a HIT called <strong>ETH Descil Trouble Ticket</strong> and file a new trouble ticket reporting the exit code as written below.<br><br>";
+						timeOut += "Notice: you do not need to enter the exit code to submit the HIT, but only for the trouble ticket.<br><br>";
+						timeOut += "Exit Code: " + exitCode + "<br> </h3>";
+						clearInterval(timeCheck);
+						document.getElementById("startPage").innerHTML = timeOut;
+					}
+					if(secCount >= ((min*60) + sec) && timeout == "NotEnoughPlayers"){
+						var timeOut = "<h3 align='center'>Thank you for your patience.<br><br>";
+						timeOut += "Unfortunately a server error occured.<br>";
+						timeOut += "Please go back to Amazon Mechanical Turk web site and file a trouble ticket.<br><br>";
+						clearInterval(timeCheck);
+						document.getElementById("startPage").innerHTML = timeOut;
+						clearTimeout(count);
+					}
+				},1000);
+			}
+			else{
+				document.getElementById("join").innerHTML = "<h3>The timeslot for connecting to the experiment was closed at " + HourLimitWaitRoom + ":" + MinutesLimitWaitRoom + " (UTC - Coordinated Universal Time).<br><br>You can not participate anymore.</h3>";
+			}
+		}
+	</script>
+</body>

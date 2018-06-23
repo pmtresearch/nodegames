@@ -1,0 +1,49 @@
+<!DOCTYPE html><title></title><head><script>var numberOfQuestions = 0</script><script>var currentAnswersMade = [];
+var questionnaire = parent.node.game.questionnaire;
+questionnaire.currentAnswerMade = false;
+questionnaire.currentAnswer = [];
+questionnaire.numberOfClicks = [];
+function makeChoice(i,j) {
+    if (numberOfQuestions <= 1) {
+        questionnaire.numberOfClicks =
+            questionnaire.numberOfClicks + 1 || 1;
+        questionnaire.currentAnswerMade = true;
+        questionnaire.currentAnswer = i;
+        return;
+    }
+    questionnaire.numberOfClicks[j] =
+        questionnaire.numberOfClicks[j] + 1 || 1;
+    questionnaire.currentAnswer[j] = i;
+    currentAnswersMade[j] = true;
+    questionnaire.currentAnswerMade = allAnswered()
+}
+
+function allAnswered() {
+    for (j = 0; j < numberOfQuestions; ++j) {
+        if (!currentAnswersMade[j]) {
+            return false;
+        }
+    }
+    return true;
+}
+</script><style>th.centeredHead, td {
+    border: solid 1px;
+    text-align: center;
+}
+table td {
+    word-wrap: break-word;
+}
+table {
+    width: 1000px;
+}
+div.questionDiv {
+    width: 1000px;
+    font-size: 18px;
+}
+h1.questionExplanation {
+    word-wrap: break-word;
+    font-size: 25px;
+}</style><style>th.centeredHead { width: 9.090909090909092%;}</style><link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/fullheight.css">
+<link rel="stylesheet" href="/stylesheets/noscript.css">
+<link rel="stylesheet" href="/stylesheets/player.css"></head><body><div class="questionDiv"><h1 class="questionExplanation">On a scale 0-10 are you generally willing to take risks, or do you try to avoid taking risks?</h1><p><table><thead><tr><th class="centeredHead">0 - Very risk averse</th><th class="centeredHead">1</th><th class="centeredHead">2</th><th class="centeredHead">3</th><th class="centeredHead">4</th><th class="centeredHead">5</th><th class="centeredHead">6</th><th class="centeredHead">7</th><th class="centeredHead">8</th><th class="centeredHead">9</th><th class="centeredHead">10 - Fully prepared to take risks</th></tr></thead><tbody><tr><td><input type="radio" name="QButton" onclick="makeChoice(0,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(1,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(2,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(3,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(4,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(5,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(6,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(7,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(8,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(9,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(10,0)"></td></tr></tbody></table></p><p><input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary"></p></div></body>

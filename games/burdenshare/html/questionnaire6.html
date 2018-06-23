@@ -1,0 +1,47 @@
+<!doctype html>
+<title>QUESTIONAIRE 6</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link href = "../css/bootstrap.min.css" rel = "stylesheet">
+
+<body>
+	<script src="../js/jquery.min.js"></script>
+	<script src = "../js/bootstrap.js"></script>
+	
+	<div id="questions6">
+	<p> How old are you?</p>
+	<select class="form-control" name="offer" id="age" style="max-width:70px;">
+		<script>	
+		// loop to create the list
+		for (var i=1; i <=100; i++)
+		{
+			document.write("<option>" + i + "</option>");
+		}
+		</script>
+	</select>
+	<br>
+	<p>Are you:</p>
+		<div class="radio">
+	  <label>
+	    <input type="radio" name="q6" id="q61" value="1">
+	    Female
+	  </label>
+	</div>
+	<div class="radio">
+	  <label>
+	    <input type="radio" name="q6" id="q62" value="0">
+	    Male
+	  </label>
+	</div>
+	
+	<br> <br>
+	<p>What is your nationality (of which country are you a citizen)?</p>
+	<textarea class="form-control" rows="5" cols="80" id="comment61" placeholder="Please enter your answer here."></textarea>
+	<br> <br>
+	<!-- Herausnehmen !!!-->
+	<p>What subject are you studying?</p>
+	<textarea class="form-control" rows="5" cols="80" id="comment62" placeholder="Please enter your answer here."></textarea>
+	<br> <br>
+	<a class = "btn btn-primary" id="continue">Continue</a>
+	<br/>
+	<br/>
+</body>

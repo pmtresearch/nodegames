@@ -1,0 +1,102 @@
+<!doctype html>
+<title>INSTRUCTIONS</title>
+<link rel="stylesheet" href="/lib/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<body>
+    <h1>Make a Decision</h1>
+    <div id="instructions">
+        <div id="info" class="alert alert-warning" style="display:none" role="alert">
+        </div>
+        <div id="tutorial-instructions" class="alert alert-info" style="display:none" role="alert">
+        </div>
+    </div>
+    <div id="red" style="display:none">
+        <p>
+            You are <strong class="red">Red</strong>, and the state of
+            the world is: <strong><span id="world-state">
+                __ </span></strong><em> (Blue does not know this)</em>
+            </p>
+            <p id="make-your-choice">
+                Make your choice:
+            </p>
+            <div id="stop-go-buttons">
+                <button id="stop" class="btn btn-lg btn-primary">Stop</button>
+                <button id="go" class="btn btn-lg btn-primary">Go</button>
+            </div>
+            <p id="red-decision"></p>
+            <p id="awaiting-blue-decision" style="display:none">
+                Waiting for Blue to make a decision
+            </p>
+
+            <em>Remember:</em>
+            <p>
+                If you choose <strong>STOP</strong>, both you and Blue
+                receive <span id="payoff-stop"> __ </span>.
+
+                <br/> If you choose <strong>GO</strong>, then Blue choses
+                Left or Right based on the following payoff tables:
+            </p>
+             <div id="payoff-matrix-a-red" class="panel panel-default half-size">
+               <div class="panel-heading">
+                 Payoffs World A <span id="probability-A-table-red">__</span>
+               </div>
+               <!-- Payoff Table A added here on init-->
+             </div>
+             <div id="payoff-matrix-b-red" class="panel panel-default half-size">
+               <div class="panel-heading">
+                 Payoffs World B <span id="probability-B-table-red">__</span>
+               </div>
+               <!-- Payoff Table B added here on init -->
+             </div>
+        </div>
+
+        <div id="blue" style="display:none">
+            <p>You are <strong class="blue">Blue</strong>.</p>
+            <p id="awaiting-red-decision">
+                Waiting for Red to make a decision
+            </p>
+            <div id="make-blue-decision" style="display: none">
+                <p>The other player, Red, chose <strong><span id="red-choice">__</span></strong>.</p>
+
+                <p>Choose wisely! Make your choice:
+
+                    <div id="left-right-buttons">
+                        <button id="left" class="btn btn-lg btn-primary">
+                            Left
+                        </button>
+                        <button id="right" class="btn btn-lg btn-primary">
+                            Right
+                        </button>
+                    </div>
+                </p>
+
+                <em>Remember:</em>
+                <p id="red-chose-stop">
+                    If Red choses <strong>STOP</strong>, you
+                    get <span id="payoff-stop-blue"> __ </span>, regardless
+                    of your choice.
+                    <br/>
+                    If Red choses <strong>GO</strong>, your payoff is based on
+                    one of the two table tables below:
+                </p>
+
+                <div class="row">
+                    <div id="payoff-matrix-a-blue" class="panel panel-default half-size">
+                      <div class="panel-heading">
+                        Payoffs World A <span id="probability-A-table-blue">__</span>
+                      </div>
+                        <!-- Payoff Table A added here on init-->
+                    </div>
+                    <div id="payoff-matrix-b-blue" class="panel panel-default half-size">
+                      <div class="panel-heading">
+                        Payoffs World B <span id="probability-B-table-blue">__</span>
+                      </div>
+                        <!-- Payoff Table B added here on init -->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </body>

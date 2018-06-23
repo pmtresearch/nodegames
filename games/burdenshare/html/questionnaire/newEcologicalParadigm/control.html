@@ -1,0 +1,29 @@
+<!DOCTYPE html><title></title><head><script>var questionnaire = parent.node.game.questionnaire;
+questionnaire.currentAnswerMade = false;
+questionnaire.numberOfClicks = 0;
+function makeChoice(i) {
+    ++questionnaire.numberOfClicks;
+    questionnaire.currentAnswerMade = true;
+    questionnaire.currentAnswer = i;
+}
+</script><style>th.centeredHead, td {
+    border: solid 1px;
+    text-align: center;
+}
+table td {
+    width: 16%;
+    word-wrap: break-word;
+}
+div.questionDiv {
+    width: 1000px;
+    font-size: 18px;
+}
+h1.questionExplanation {
+    word-wrap: break-word;
+    font-size: 25px;
+}
+</style><link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/fullheight.css">
+<link rel="stylesheet" href="/stylesheets/noscript.css">
+<link rel="stylesheet" href="/stylesheets/player.css"></head><body><div class="questionDiv"><h1 class="questionExplanation">Please indicate whether you:
+<i>strongly agree, mildly agree, unsure, mildly disagree,</i> or <i>strongly disagree</i>.</h1><p><table><thead><tr><td></td><th class="centeredHead">Strongly Disagree</th><th class="centeredHead">Mildly Disagree</th><th class="centeredHead">Unsure</th><th class="centeredHead">Mildly Agree</th><th class="centeredHead">Strongly Agree</th></tr></thead><tbody><tr><th class="centeredHead">Humans will eventually learn enough about how nature works to be able to control it.</th><td><input type="radio" name="QButton" onclick="makeChoice(1)"></td><td><input type="radio" name="QButton" onclick="makeChoice(2)"></td><td><input type="radio" name="QButton" onclick="makeChoice(3)"></td><td><input type="radio" name="QButton" onclick="makeChoice(4)"></td><td><input type="radio" name="QButton" onclick="makeChoice(5)"></td></tr></tbody></table></p><p><input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary"></p></div></body>

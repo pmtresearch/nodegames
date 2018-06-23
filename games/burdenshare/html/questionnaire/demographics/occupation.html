@@ -1,0 +1,24 @@
+<!DOCTYPE html><title></title><head><script>var questionnaire = parent.node.game.questionnaire;
+questionnaire.currentAnswerMade = false;
+questionnaire.numberOfClicks = 0;
+function makeChoice(i) {
+    ++questionnaire.numberOfClicks;
+    if (i == 0) {
+        questionnaire.currentAnswerMade = false;
+        return;
+    }
+    questionnaire.currentAnswerMade = true;
+    questionnaire.currentAnswer = i;
+}
+</script><style>div.questionDiv {
+    width: 720px;
+    font-size: 12px;
+}
+h1.questionExplanation {
+    word-wrap: break-word;
+    font-size: 20px;
+}
+</style><link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/fullheight.css">
+<link rel="stylesheet" href="/stylesheets/noscript.css">
+<link rel="stylesheet" href="/stylesheets/player.css"></head><body><div class="questionDiv"><h1 class="questionExplanation">Which occupational category best describes your employment?</h1><p><select onchange="makeChoice(this.selectedIndex)"><option></option><option>Management: professional or related occupations</option><option>Management: business or  financial operations occupations</option><option>Management occupations, except farmers and farm managers</option><option>Farmers and farm managers</option><option>Business and financial operations </option><option>Business operations specialists</option><option>Financial specialists</option><option>Computer or mathematical </option><option>Architects, surveyors, cartographers, or engineers</option><option>Drafters, engineering, or mapping technicians</option><option>Life, physical, or social science </option><option>Community and social services </option><option>Legal </option><option>Education, training, or library </option><option>Arts, design, entertainment, sports, or media </option><option>Health diagnosing or treating practitioners &amp; technical occupations</option><option>Health technologists or technicians</option><option>Health care support </option><option>Fire fighting, prevention or law enforcement workers, (including supervisors)</option><option>Other protective service workers (including supervisors)</option><option>Food preparation or serving-related </option><option>Building, grounds cleaning or maintenance </option><option>Personal care or service </option><option>Sales or related occupations</option><option>Office or administrative support </option><option>Farming, fishing, or  forestry </option><option>Supervisors, construction or extraction </option><option>Construction trades workers</option><option>Extraction workers</option><option>Installation, maintenance, or repair occupations</option><option>Production </option><option>Supervisors, transportation or material moving </option><option>Aircraft or traffic control </option><option>Motor vehicle operators</option><option>Rail, water or other transportation </option><option>Material moving</option></select></p><p><input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary"></p></div></body>

@@ -1,0 +1,67 @@
+<!doctype html>
+<title>INITIAL SITUATION</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link href = "../css/bootstrap.min.css" rel = "stylesheet">
+
+<body id ="bodyresp">
+	<script src="../js/jquery.min.js"></script>
+	<script src = "../js/bootstrap.js"></script>
+	<script> 
+		$(document).ready(function(){
+		  $("#instruct").click(function(){
+		    $("#frame").slideToggle("slow");
+		  });
+		});
+	</script>
+	
+	<div id="instructions" style="display: ">
+		<center>
+			<div id="practice1" style="display: none;">
+				This is the first page of the round. It tells you whether you are the proposer or 
+				the responder in this round. In the example here, you are the responder. The 
+				table below shows how large the wealth of you and the other player is, and how much you 
+				and the other player have contributed to climate risk in the past.The total climate risk 
+				is your and the other player’s contribution to climate risk plus a 15% baseline risk.
+			</div><br>		
+			<div id="inform0"></div>
+			<div id="inform1"></div>
+			<div id="inform2"></div>
+			A new round of the experiment is about to begin. <br>
+			You are the <b>responder</b> in this round.
+			<br> <br> <br>
+		    <table class="table" style="max-width:600px;">
+		    	<tr class="active">
+				    <td align="left"></td>
+				    <td align="center">Wealth (ECU)</td>
+				    <td align="center">Climate Risk (%)</td>
+				</tr>
+				<tr>
+				    <td align="left">You</td>
+				    <td align="center" id="respEndow"></td>
+				    <td align="center" id="clRiskOwn"></td>
+				</tr>
+				<tr class="active">
+				    <td align="left">The other player</td>
+				    <td align="center" id="propEndow"></td>
+				    <td align="center" id="clRiskOther"></td>
+				</tr>
+			</table>
+			<br> <br>
+			The total cost of reducing the greenhouse gas emissions is <font id="costGHGE"></font> ECU. <br>
+			If there is no agreement about sharing the cost a climate catastrophy will occure with a probability of <font id="clRisk"></font> %. <br>
+			<br> <br>
+			<a class = "btn btn-primary" id="continue" >Continue</a>
+		 	<!--  <input type="button" id="continue" value="Continue" /> -->
+			<br><br><br><br>
+			<div>For showing the instructions again click the button below.</div><br>
+			<a class="btn btn-custom" id="instruct">Click here to show or hide the instructions</a>
+			<br> <br>
+			<div id="frame"  style="display: none;">
+				<iframe src="instructions_full_80.html" width = "85%" height = "600px">						
+					<p>Your browser does not support iframes.</p>
+				</iframe>
+			</div>
+		 	<br/> <br/>
+		</center>
+	</div>
+</body>

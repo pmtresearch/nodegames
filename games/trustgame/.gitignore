@@ -1,0 +1,16 @@
+*.nddb
+_*
+Session.vim
+*.tar.gz
+~*
+*~
+*.tar.gz
+.DS_Store
+
+\#*
+.\#*
+
+server/csv
+server/data
+
+data

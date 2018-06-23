@@ -1,0 +1,37 @@
+{
+  "name": "dictator-game",
+  "channelName": "dictator",
+  "description": "dictator game for nodeGame",
+  "version": "1.0.0",
+  "url": "https://github.com/pmtresearch/pmtgames/dictator",
+  "card": {
+    "url": "https://github.com/nodeGame/dictator",
+    "wiki": "https://en.wikibooks.org/wiki/Bestiary_of_Behavioral_Economics/Dictator_Game",
+    "icon": "accessibility",
+    "description": "One player decides for both."
+  },
+  "author": "PMT Research Institute <research@hjsfmail.org>",
+  "license": "MIT",
+  "main": "public/index.htm",
+  "keywords": [
+    "nodegame",
+    "behavioral",
+    "dictator",
+    "game theory"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pmtresearch/pmtgames/dictator.git"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "nodegame": ">= 4.0.0"
+  },
+  "homepage": "https://games.pmtresearch.org",
+  "bugs": {
+    "url": "https://github.com/pmtresearch/pmtgames/dictator/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

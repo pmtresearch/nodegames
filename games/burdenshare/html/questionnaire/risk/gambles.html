@@ -1,0 +1,49 @@
+<!DOCTYPE html><title></title><head><script>var numberOfQuestions = 6</script><script>var currentAnswersMade = [];
+var questionnaire = parent.node.game.questionnaire;
+questionnaire.currentAnswerMade = false;
+questionnaire.currentAnswer = [];
+questionnaire.numberOfClicks = [];
+function makeChoice(i,j) {
+    if (numberOfQuestions <= 1) {
+        questionnaire.numberOfClicks =
+            questionnaire.numberOfClicks + 1 || 1;
+        questionnaire.currentAnswerMade = true;
+        questionnaire.currentAnswer = i;
+        return;
+    }
+    questionnaire.numberOfClicks[j] =
+        questionnaire.numberOfClicks[j] + 1 || 1;
+    questionnaire.currentAnswer[j] = i;
+    currentAnswersMade[j] = true;
+    questionnaire.currentAnswerMade = allAnswered()
+}
+
+function allAnswered() {
+    for (j = 0; j < numberOfQuestions; ++j) {
+        if (!currentAnswersMade[j]) {
+            return false;
+        }
+    }
+    return true;
+}
+</script><style>th.centeredHead, td {
+    border: solid 1px;
+    text-align: center;
+}
+table td {
+    word-wrap: break-word;
+}
+table {
+    width: 1000px;
+}
+div.questionDiv {
+    width: 1000px;
+    font-size: 18px;
+}
+h1.questionExplanation {
+    word-wrap: break-word;
+    font-size: 25px;
+}</style><style>th.centeredHead { width: 33.333333333333336%;}</style><link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/fullheight.css">
+<link rel="stylesheet" href="/stylesheets/noscript.css">
+<link rel="stylesheet" href="/stylesheets/player.css"></head><body><div class="questionDiv"><h1 class="questionExplanation">Suppose you are presented with the following gambles, giving you a 50-50 chance of losing or winning money. What would you choose?</h1><p><table><thead><tr><td></td><th class="centeredHead">Yes</th><th class="centeredHead">No</th></tr></thead><tbody><tr><th class="centeredHead">Lose $2 or win $6</th><td><input type="radio" name="QButton0" onclick="makeChoice(0,0)"></td><td><input type="radio" name="QButton0" onclick="makeChoice(1,0)"></td></tr><tr><th class="centeredHead">Lose $3 or win $6</th><td><input type="radio" name="QButton1" onclick="makeChoice(0,1)"></td><td><input type="radio" name="QButton1" onclick="makeChoice(1,1)"></td></tr><tr><th class="centeredHead">Lose $4 or win $6</th><td><input type="radio" name="QButton2" onclick="makeChoice(0,2)"></td><td><input type="radio" name="QButton2" onclick="makeChoice(1,2)"></td></tr><tr><th class="centeredHead">Lose $5 or win $6</th><td><input type="radio" name="QButton3" onclick="makeChoice(0,3)"></td><td><input type="radio" name="QButton3" onclick="makeChoice(1,3)"></td></tr><tr><th class="centeredHead">Lose $6 or win $6</th><td><input type="radio" name="QButton4" onclick="makeChoice(0,4)"></td><td><input type="radio" name="QButton4" onclick="makeChoice(1,4)"></td></tr><tr><th class="centeredHead">Lose $7 or win $6</th><td><input type="radio" name="QButton5" onclick="makeChoice(0,5)"></td><td><input type="radio" name="QButton5" onclick="makeChoice(1,5)"></td></tr></tbody></table></p><p><input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary"></p></div></body>

@@ -1,0 +1,49 @@
+<!DOCTYPE html><title></title><head><script>var numberOfQuestions = 0</script><script>var currentAnswersMade = [];
+var questionnaire = parent.node.game.questionnaire;
+questionnaire.currentAnswerMade = false;
+questionnaire.currentAnswer = [];
+questionnaire.numberOfClicks = [];
+function makeChoice(i,j) {
+    if (numberOfQuestions <= 1) {
+        questionnaire.numberOfClicks =
+            questionnaire.numberOfClicks + 1 || 1;
+        questionnaire.currentAnswerMade = true;
+        questionnaire.currentAnswer = i;
+        return;
+    }
+    questionnaire.numberOfClicks[j] =
+        questionnaire.numberOfClicks[j] + 1 || 1;
+    questionnaire.currentAnswer[j] = i;
+    currentAnswersMade[j] = true;
+    questionnaire.currentAnswerMade = allAnswered()
+}
+
+function allAnswered() {
+    for (j = 0; j < numberOfQuestions; ++j) {
+        if (!currentAnswersMade[j]) {
+            return false;
+        }
+    }
+    return true;
+}
+</script><style>th.centeredHead, td {
+    border: solid 1px;
+    text-align: center;
+}
+table td {
+    word-wrap: break-word;
+}
+table {
+    width: 1000px;
+}
+div.questionDiv {
+    width: 1000px;
+    font-size: 18px;
+}
+h1.questionExplanation {
+    word-wrap: break-word;
+    font-size: 25px;
+}</style><style>th.centeredHead { width: 33.333333333333336%;}</style><link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/fullheight.css">
+<link rel="stylesheet" href="/stylesheets/noscript.css">
+<link rel="stylesheet" href="/stylesheets/player.css"></head><body><div class="questionDiv"><h1 class="questionExplanation">Suppose you are presented with a choice between a sure payment of $50 and a gamble offering even chances at $0 or $100 (double or nothing). Which would you prefer?</h1><p><table><thead><tr><th class="centeredHead">Sure amount (50 USD)</th><th class="centeredHead">Gamble (0 or 100 USD)</th><th class="centeredHead">Indifferent</th></tr></thead><tbody><tr><td><input type="radio" name="QButton" onclick="makeChoice(0,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(1,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(2,0)"></td></tr></tbody></table></p><p><input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary"></p></div></body>

@@ -1,0 +1,108 @@
+<!doctype html>
+<title>GAME 2</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script> 
+		$(document).ready(function(){
+		  $("#instruct").click(function(){
+		    $("#frame").slideToggle("slow");
+		  });
+		});
+	</script>
+	<div>
+		<center>
+			<div id="practice1" style="display: none;">
+				This is the first page of the round. It tells you whether you are the 
+				proposer or the responder in this round. In the example here, you are 
+				the proposer/responder. The table below shows how large the wealth of you 
+				and the other player is, and how much you and the other player have 
+				contributed to climate risk in the past.The total climate risk is your 
+				and the other player’s contribution to climate risk plus a 15% baseline risk.
+			</div><br>
+			<div id="instructions">
+			<table class="table" style="max-width:600px;">
+				  <tr class="active">
+				    <td align="left">Your endowment (ECU):</td>
+				    <td align="center" id="propEndow"></td>
+				  </tr>
+				  <tr>
+				    <td align="left">The other player's endowment (ECU):</td>
+				    <td align="center" id="respEndow"></td>
+				  </tr>
+				  <tr class="active">
+				    <td align="left">Total cost of reducing greenhouse gas emissions (ECU):</td>
+				    <td align="center" id="costGHGE"></td>
+				  </tr>
+				  <tr>
+				    <td align="left">Your contribution to increase the climate risk (%):</td>
+				    <td align="center" id="clRiskOwn"></td>
+				  </tr>
+				  <tr class="active">
+				    <td align="left">The other player's contribution to increase the climate risk (%):</td>
+				    <td align="center" id="clRiskOther"></td>
+				  </tr>
+				  <tr>
+				  	<td align="left">Probability of climate catastrophy if no agreement (%):</td>
+				  	<td align = "center" id="clRisk"></td>
+				  </tr>
+			</table>
+			</div> <br><br>
+			<div id="instructions" style = "align: center;">
+				<h4>How much of the total cost of 30 do you want to pay?</h4>
+			</div>
+			</br>
+			<fieldset id="fieldset">
+				<select class="form-control" name="offer" id="offer"
+					style="max-width: 70px;">
+					<option>0</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+					<option>21</option>
+					<option>22</option>
+					<option>23</option>
+					<option>24</option>
+					<option>25</option>
+					<option>26</option>
+					<option>27</option>
+					<option>28</option>
+					<option>29</option>
+					<option>30</option>
+				</select> <br />
+				<!-- <input type="number" min="0" max="10" name="offer" id="offer" /> -->
+				<a class="btn btn-primary" id="submitOffer" style="width: 70px;">Submit</a>
+			</fieldset> </br>
+			<div id="offered"></div>
+			<br><br><br><br>
+			<div>For showing the instructions again click the button below.</div><br>
+			<a class="btn btn-custom" id="instruct">Click here to show or hide the instructions</a>
+			<br> <br>
+			<div id="frame"  style="display: none;">
+				<iframe src="instructions_full_30.html" width = "85%" height = "600px">						
+					<p>Your browser does not support iframes.</p>
+				</iframe>
+			</div>	
+		</center>
+	</div>
+</body>

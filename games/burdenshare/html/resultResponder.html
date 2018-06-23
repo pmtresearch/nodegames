@@ -1,0 +1,52 @@
+<!doctype html>
+<title>Result Responder</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<div id="instructions">
+		<center>
+			<div id="practice3" style="display: none;">
+			This page shows you the result of this round. In the table you can see 
+			how much the other player offered to pay, and whether you accepted this 
+			offer or not. [If accept:] In this example, you accepted and thus no climate 
+			catastrophe happened. Both of you had to pay their share of the total cost. 
+			[If reject:] In this example, you rejected and the computer randomly determined 
+			that a climate catastrophe happened/that no climate catastrophe happened. Because 
+			of this, both of you lost half of their wealth/Because of this, both of you keep 
+			all of your wealth from the beginning of this round. The table below shows how 
+			much each of you have left at the end of this round.		
+			</div> <br>
+			<div id="result1"></div>
+			<div id="result2"></div>
+			<div id="result3"></div>
+			<br> <br> <br>
+		    <table class="table" style="max-width:600px;">
+		    	<tr class="active">
+				    <td align="left"></td>
+				    <td align="center">Decision</td>
+				    <td align="center">Remaining wealth (ECU)</td>
+				</tr>
+				<tr>
+				    <td align="left">You</td>
+				    <td align="center" id="respDecision"></td>
+				    <td align="center" id="remainResp"></td>
+				</tr>
+				<tr class="active">
+				    <td align="left">The other player</td>
+				    <td align="center" id="propOffer"></td>
+				    <td align="center" id="remainProp"></td>
+				</tr>
+			</table>
+			<br> <br>
+			The amount for you to pay was <font id="respToPay"></font> ECU. <br>
+			Agreement against global warming: <font id="agreement"></font> <br>
+			Climate catastrophy: <font id="climateCatastrophe"></font> <br>
+			<br> <br> <a class="btn btn-primary" id="continue">Continue</a>
+			<br/>
+			<br/>
+		</center>
+	</div>
+</body>

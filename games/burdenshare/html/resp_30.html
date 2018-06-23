@@ -1,0 +1,100 @@
+<!doctype html>
+<title>GAME 3</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script> 
+		$(document).ready(function(){
+		  $("#instruct").click(function(){
+		    $("#frame").slideToggle("slow");
+		  });
+		});
+	</script>
+
+	<center>
+		<div id="practice2" style="display: none;">
+			This page shows you how much of the total cost of reducing greenhouse gas 
+			emissions the proposer has offered to pay. In this example, he has decided 
+			to pay x. This means, you will have to pay y if you accept. You have to decide 
+			now whether to accept or reject this offer. If you accept it, both of you will 
+			their shares of the total cost subtracted from their wealth. If you reject, you 
+			and the proposer do not have to pay anything. However, there is a  x% chance in 
+			this example that a climate catastrophe happens and you both lose half of your 
+			wealth. Please make your decision now using the menu below.
+		</div><br>
+		<div id="instructions">
+		<table class="table" style="max-width:600px;">
+			  <tr class="active">
+			    <td align="left">Your endowment (ECU):</td>
+			    <td align="center" id="respEndow"></td>
+			  </tr>
+			  <tr>
+			    <td align="left">The other player's endowment (ECU):</td>
+			    <td align="center" id="propEndow"></td>
+			  </tr>
+			  <tr class="active">
+			    <td align="left">Total cost of reducing greenhouse gas emissions (ECU):</td>
+			    <td align="center" id="costGHGE"></td>
+			  </tr>
+			  <tr>
+			    <td align="left">Your contribution to increase the climate risk (%):</td>
+			    <td align="center" id="clRiskOwn"></td>
+			  </tr>
+			  <tr class="active">
+			    <td align="left">The other player's contribution to increase the climate risk (%):</td>
+			    <td align="center" id="clRiskOther"></td>
+			  </tr>
+			  <tr>
+			  	<td align="left">Probability of climate catastrophy if no agreement (%):</td>
+			  	<td align = "center" id="clRisk"></td>
+			  </tr>
+		</table><br><br>
+		<!-- <div id="instructions"> -->
+			<div id = "dots" style="display: ;">
+			<h4>Waiting to receive an offer</h4> <span id="span_dot">.</span>
+			</div>
+			
+			</br>
+			<div id="text" style="display: none;">
+				<table class="table" style="max-width: 600px;">
+					<tr>
+						<td>This is how much the other player offers to
+							pay:</td>
+						<td align="center" id="proposer"></td>
+					</tr>
+					<tr class="active">
+						<td>This is how much you would have to pay:</td>
+						<td align="center" id="respondent"></td>
+					</tr>
+					<tr>
+						<td>Do you want to accept or reject this offer?</td>
+						<td>
+							<form class="form-inline" role="form" id="offered"
+								style="display: none;">
+								<a class="btn btn-primary" id="accept" style="min-width: 70px;">Accept</a> <a
+									class="btn btn-primary" id="reject" style="min-width: 70px;">Reject</a>
+							</form> <!--
+			    		<div id="offered" style="display:none;">
+			    		<a class = "btn btn-primary" id="accept">Accept</a>
+			    		<a class = "btn btn-primary" id="reject">Reject</a>
+						</div>
+						-->
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<br><br><br><br>
+		<div>For showing the instructions again click the button below.</div><br>
+		<a class="btn btn-custom" id="instruct">Click here to show or hide the instructions</a>
+		<br> <br>
+		<div id="frame"  style="display: none;">
+			<iframe src="instructions_full_30.html" width = "85%" height = "600px">						
+				<p>Your browser does not support iframes.</p>
+			</iframe>
+		</div>		
+	</center>
+</body>

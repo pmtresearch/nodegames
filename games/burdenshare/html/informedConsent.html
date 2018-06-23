@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Informed Consent</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+	<script type="text/javascript">
+		function decisionIC(){
+			bootbox.dialog({
+			  message: "You have decided not to participate. You can now close this browser window or go back to the consent from.",
+			  buttons: {
+			    success: {
+			      label: "Back to the consent form",
+			      className: "btn-success",
+			      callback: function() {
+			      }
+			    },
+			    danger: {
+			      label: "Close this window",
+			      className: "btn-danger",
+			      callback: function() {
+					window.open('','_self').close();
+			      }
+			    }
+			  }
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/bootbox.min.js"></script>
+	
+	<div class="container" id="informedConsent" style="display:;">
+		<div class="jumbotron" width="80%">
+			<h1 align="center">Welcome</h1>
+			<p id = "consentForm" align="center">
+				Please read the following statement carefully. <br/>
+				If you choose to participate, please click on the button next to “I have read and understood the consent form 
+				and agree to participate in this experiment.” If you choose not to participate, please click on the "Cancel" button 
+				at the bottom of this page and return the HIT on Mechanical Turk.
+				<br/> <br/>
+				This experiment is carried out for a research project led by Professor Thomas Bernauer from ETH Zürich. 
+				Its objective is to better understand personal opinions concerning international politics. The experiment is for scientific purposes only.
+				It has no commercial or government-related purpose.
+				<br/> <br/>
+				There are no known risks for you if you decide to participate in this experiment, nor will you experience any costs when participating.
+				The information you provide will help us understand opinions concerning international politics.
+				<br/> <br/>
+				This experiment is anonymous. The information you provide will not be stored or used in any way that could reveal your personal identity.
+				<br/> <br/>
+				If you have any questions or concerns participation, you may contact us at thbesurveyone@gess.ethz.ch or write to
+				Thomas Bernauer, ETH Zurich, Haldeneggsteig 4, 8092 Zurich, Switzerland.
+				<br/> <br/>
+				The ETH Zürich Ethics Review Commission has reviewed and approved this project. 
+				If you have any concerns about your rights in this experiment, please contact us at thbesurveyone@gess.ethz.ch or
+				Raffael Iturrizaga from the ETH Zurich Ethics Review Commission at
+				raffael.iturrizaga@sl.ethz.ch or +41 44 632 2354 with reference to its decision EK 2012-N-41.	
+				<br/> <br/>		
+			</p>
+			
+			<div class="well" id = "btn1" style="background-color:white;">
+				<p align="center">I have read and understood the consent form and agree to participate in this experiment. <br/></p>
+				<center>
+					<a class="btn btn-success" style="font-size:85%; align:center;" onClick="location.href = '../index.htm'">Continue</a>
+				</center>
+			</div>
+			
+			<div class="well" id = "btn2" style="background-color:white;">
+				<p align="center">I do not agree to participate in the experiment.<br/></p>
+				<center>
+					<a class="btn btn-danger" style="font-size:85%;" onClick="decisionIC()">Cancel</a>
+				</center>
+			</div>
+		</div>
+	</div>	
+</body>

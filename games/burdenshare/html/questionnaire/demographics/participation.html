@@ -1,0 +1,49 @@
+<!DOCTYPE html><title></title><head><script>var numberOfQuestions = 0</script><script>var currentAnswersMade = [];
+var questionnaire = parent.node.game.questionnaire;
+questionnaire.currentAnswerMade = false;
+questionnaire.currentAnswer = [];
+questionnaire.numberOfClicks = [];
+function makeChoice(i,j) {
+    if (numberOfQuestions <= 1) {
+        questionnaire.numberOfClicks =
+            questionnaire.numberOfClicks + 1 || 1;
+        questionnaire.currentAnswerMade = true;
+        questionnaire.currentAnswer = i;
+        return;
+    }
+    questionnaire.numberOfClicks[j] =
+        questionnaire.numberOfClicks[j] + 1 || 1;
+    questionnaire.currentAnswer[j] = i;
+    currentAnswersMade[j] = true;
+    questionnaire.currentAnswerMade = allAnswered()
+}
+
+function allAnswered() {
+    for (j = 0; j < numberOfQuestions; ++j) {
+        if (!currentAnswersMade[j]) {
+            return false;
+        }
+    }
+    return true;
+}
+</script><style>th.centeredHead, td {
+    border: solid 1px;
+    text-align: center;
+}
+table td {
+    word-wrap: break-word;
+}
+table {
+    width: 1000px;
+}
+div.questionDiv {
+    width: 1000px;
+    font-size: 18px;
+}
+h1.questionExplanation {
+    word-wrap: break-word;
+    font-size: 25px;
+}</style><style>th.centeredHead { width: 50%;}</style><link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/fullheight.css">
+<link rel="stylesheet" href="/stylesheets/noscript.css">
+<link rel="stylesheet" href="/stylesheets/player.css"></head><body><div class="questionDiv"><h1 class="questionExplanation">Have you ever participated in an experiment like this (i.e. negotiation) on MTURK prior to this one?</h1><p><table><thead><tr><th class="centeredHead">Yes</th><th class="centeredHead">No</th></tr></thead><tbody><tr><td><input type="radio" name="QButton" onclick="makeChoice(0,0)"></td><td><input type="radio" name="QButton" onclick="makeChoice(1,0)"></td></tr></tbody></table></p><p><input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary"></p></div></body>

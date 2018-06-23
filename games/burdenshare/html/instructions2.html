@@ -1,0 +1,38 @@
+<!doctype html>
+<title>INSTRUCTIONS</title>
+<link rel="stylesheet" type="text/css" href="/burdenRAHR/css/style.css">
+<link href = "/burdenRAHR/css/bootstrap.min.css" rel = "stylesheet">
+<link rel='stylesheet' href='/stylesheets/fullheight.css'></link>
+
+<body>
+	<script src="../js/jquery.min.js"></script>
+	<script src = "../js/bootstrap.js"></script>
+	
+	<h1>Instructions of the experiment. Please read them carefully</h1>
+	<div id="instructions">
+		You will play a total of four rounds with each round following the same format. Each round will be played against one 
+		other participant. In every pair, there will be one “proposer”, and a “responder”. Anyone can be a “responder” or a “proposer”. 
+		These roles are randomly assigned to each player every round. You will be given the wealth of your one-person economy and how much 
+		it has contributed to climate risk due to its economic growth in the past. Climate risk is the probability with which you can lose 
+		a part of your wealth due to a climate catastrophe in the experiment. The wealth amongst players ranges between 30 
+		(low economic growth) and 125 ECU (high economic growth). Your contribution to climate risk can be between 0 and 25 percent with 
+		those who had higher economic growth in the past having larger contributions to climate risk. You will start each of the three 
+		rounds with the same wealth and contribution to climate risk.
+		<br />
+		<br />
+		At the start of each round, the proposer will be asked how much of the total cost she/he offers to pay. This offer has to be 
+		a whole number between 0 and <font id="cost"></font>. After that, the responder will be asked whether she/he accepts or rejects the offer. 
+		If the responder accepts and a climate agreement has been reach then each player’s share of the cost is subtracted from his/her wealth.
+		<br />
+		<br />
+		If the responder rejects, there is no agreement and no costs have to be paid. However, there is a risk that a climate catastrophe 
+		will occur. This risk is the sum of both players’ contribution to climate risk plus a baseline risk of 15 percent. (that means it 
+		can be between 15% and 65%). If a catastrophe happens, each player loses half of his or her wealth. The computer 
+		randomly determines whether the catastrophe occurs. In this case, each player loses half of his or her wealth.  
+		<br />
+		<br />
+	</div>
+	<a class = "btn btn-primary" id="continue" >Continue</a>
+	<br/>
+	<br/>
+</body>

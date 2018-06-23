@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<title></title>
+<head>
+    <script>
+    var numberOfQuestions = 0</script><script>var currentAnswersMade = [];
+    var questionnaire = parent.node.game.questionnaire;
+    questionnaire.currentAnswerMade = false;
+    questionnaire.currentAnswer = [];
+
+    function makeChoice(i,j) {
+        unselectOther();
+        if (numberOfQuestions <= 1) {
+            questionnaire.currentAnswerMade = true;
+            questionnaire.currentAnswer = i;
+            return;
+        }
+        questionnaire.currentAnswer[j] = i;
+        currentAnswersMade[j] = true;
+        questionnaire.currentAnswerMade = allAnswered()
+    }
+    function unselectOther() {
+        document.getElementById('divForOther').style.display = 'none';
+    }
+    function selectOther() {
+        var textField = document.getElementById('divForOther');
+        textField.style.display = '';
+        questionnaire.currentAnswer = 5;
+    }
+
+    function allAnswered() {
+        for (j = 0; j < numberOfQuestions; ++j) {
+            if (!currentAnswersMade[j]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    </script>
+
+    <style>
+            th.centeredHead, td {
+                border: solid 1px;
+                text-align: center;
+            }
+            table td {
+                width: 14.2857%;
+                word-wrap: break-word;
+            }
+            div.questionDiv {
+                width: 1000px;
+                font-size: 18px;
+            }
+            h1.questionExplanation {
+                word-wrap: break-word;
+                font-size: 25px;
+            }
+    </style>
+    <link rel="stylesheet" href="/burdenRAHR/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/fullheight.css">
+    <link rel="stylesheet" href="/stylesheets/noscript.css">
+    <link rel="stylesheet" href="/stylesheets/player.css">
+</head>
+<body>
+    <div class="questionDiv">
+        <h1 class="questionExplanation">How would you place your political views on the scale from &quot;the left&quot; to &quot;the right&quot;, generally speaking?</h1>
+        <p>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="centeredHead">Left</th>
+                        <th class="centeredHead">Mostly Left</th>
+                        <th class="centeredHead">Centre</th>
+                        <th class="centeredHead">Mostly Right</th>
+                        <th class="centeredHead">Right</th>
+                        <th class="centeredHead">Other</th>
+                        <th class="centeredHead">Don't Know</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="radio" name="QButton" onclick="makeChoice(0,0)">
+                        </td>
+                        <td>
+                            <input type="radio" name="QButton" onclick="makeChoice(1,0)">
+                        </td>
+                        <td>
+                            <input type="radio" name="QButton" onclick="makeChoice(2,0)">
+                        </td>
+                        <td>
+                            <input type="radio" name="QButton" onclick="makeChoice(3,0)">
+                        </td>
+                        <td>
+                            <input type="radio" name="QButton" onclick="makeChoice(4,0)">
+                        </td>
+                        <td>
+                            <input type="radio" name="QButton" onclick="selectOther()">
+                        </td>
+                        <td>
+                            <input type="radio" name="QButton" onclick="makeChoice(6,0)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                <div id="divForOther" style="display: none">
+                    Specify "Other": <br>
+                    <input id="textForOther" type="text">
+                </div>
+        </p>
+        <p>
+            <input type="button" id="done" value="Submit Answer" class="btn btn-lg btn-primary">
+        </p>
+    </div>
+</body>

@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+/* Header Horizontal */
+
+.history {
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    max-width: 42em;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
